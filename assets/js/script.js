@@ -1,13 +1,12 @@
 let btn = document.getElementById("btn-dark");
 btn.innerHTML = "☀️";
 let defaultMode = "light";
-
+var item = document.getElementsByClassName("item");
 function changeMode() {
   if (defaultMode === "light") {
     document.body.style.backgroundColor = "#1e293b";
     document.body.style.color = "white";
-    document.querySelector(".items .item").style.borderBottom =
-      "2px solid #f8fafc";
+    // item.style.backgroundColor = "red";
     btn.innerHTML = "🌙";
     defaultMode = "dark";
   } else {

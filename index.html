@@ -32,7 +32,19 @@
         </div>
       </div>
     </div>
+    <div id="app">
+      <input type="text" v-model="msg" />
+      <p>{{msg}}</p>
+    </div>
     <script src="assets/js/script.js"></script>
     <script src="assets/vendor/vue2.js"></script>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          msg: "hi",
+        },
+      });
+    </script>
   </body>
 </html>
