@@ -17,14 +17,7 @@
     </div>
     <div id="app">
     <!-- end button -->
-    <form @submit.prevent="simpan()"><input type="text"  v-model="input" >
-
-    <button >simpan</button></form>
-    <h3>buuah adalah {{items.length}}</h3>
-
-    <ul v-for="item in items">
-      <li>{{item}}</li>
-    </ul>
+   
 
     <div class="items">
       <div v-for="item in items" class="item">
@@ -50,22 +43,26 @@
         el: "#app",
         
         data() {
-          return {
-        
-          items:["pram","dita"],
-          input: "",
-          }
-        },
-        methods:{
-          simpan(){
-            if(this.input.length > 0){
-            this.items.push(this.input);
-          }
+            return{
+              items:[
+                {
+                  id:1,
+                  produk:"tas",
+                  harga:20000,
+                  deskripsi:"haiya ini cuma deskripsi ea",
+                  image:"https://ibb.co/T4S5VTc"
+                },
+                {
+                  id:2,
+                  produk:"tas juga",
+                  harga:200000,
+                  deskripsi:"aduh lupa lagi deskripsi",
+                  image:"https://ibb.co/T4S5VTc"
+                }
+              ]
+            } 
         }
-        }
-      },
-      
-      );
+        });
     </script>
   </body>
 </html>

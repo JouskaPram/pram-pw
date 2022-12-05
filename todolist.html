@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+  <form @submit.prevent="simpan()"><input type="text"  v-model="input" >
+
+    <button >simpan</button></form>
+
+    <h3>buah adalah {{items.length}}</h3>
+
+    <ul v-for="item in items">
+      <li>{{item}}</li>
+    </ul>
+    <button @click="urut()">Urutkan</button>
+
+
+  </div>
+    <script src="assets/vendor/vue2.js"></script>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        
+        data() {
+          return { 
+        
+          items:["pram","dita"],
+          input: "",
+          }
+        },
+        methods:{
+          simpan(){
+            if(this.input.length > 0){
+            this.items.push(this.input);
+            this.input=""
+          }
+        },
+        urut(){
+          this.items.sort()
+        }
+        }
+      },
+      
+      );
+    </script>
+</body>
+</html>
