@@ -17,22 +17,22 @@
     </div>
 
     <!-- end button -->
+    <div id="app">
     <div class="items">
-      <div class="item">
+      <div v-for="item in items" class="item">
         <div class="foto">
           <img src="assets/img/TAS CROSSBODY PREMIUM MALL 1.png" alt="" />
         </div>
         <div class="content">
-          <h2>Judul produk</h2>
-          <h3>Price</h3>
+          <h2>{{item.produk}}</h2>
+          <h3>{{item.harga}}</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates,
-            eum aut. Possimus dolores labore minima?
+           {{item.deskripsi }}
           </p>
         </div>
       </div>
     </div>
-    <div id="app">
+   
       <input type="text" v-model="msg" />
       <p>{{msg}}</p>
     </div>
@@ -43,6 +43,20 @@
         el: "#app",
         data: {
           msg: "hi",
+          items:[
+            {
+              id:1,
+              produk:'pram',
+              harga:20000,
+              deskripsi:'ini adalah deskripsi bukan yang lain'
+            },
+            {
+              id:2,
+              produk:'dita',
+              harga:200000,
+              deskripsi:"pram ganteng"
+            }
+          ]
         },
       });
     </script>
