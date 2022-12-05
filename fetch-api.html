@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+   
+    <ul v-for="item in items" >
+      <li>{{item.title}}</li>
+    </ul>
+  </div>
+
+  
+  <script src="assets/vendor/vue2.js"></script>
+  <script>
+    var app = new Vue({
+      el:'#app',
+      data(){
+        return{
+          items:"",
+        }
+      },
+      mounted(){
+        this.getItems();
+      },
+      methods:{
+        async getItems(){
+        //   const res = await fetch("'https://fakestoreapi.com/products/1'")
+        //   const data = await res.json();
+        //   console.log(data);
+         await fetch('https://fakestoreapi.com/products')
+            .then(res=>res.json())
+            .then(json=>(this.items=json))
+        }
+      }
+    })
+  </script>
+</body>
+</html>

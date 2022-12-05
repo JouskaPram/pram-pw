@@ -15,9 +15,17 @@
     <div class="dark-btn">
       <button id="btn-dark" onclick="changeMode()">☀️</button>
     </div>
-
-    <!-- end button -->
     <div id="app">
+    <!-- end button -->
+    <form @submit.prevent="simpan()"><input type="text"  v-model="input" >
+
+    <button >simpan</button></form>
+    <h3>buuah adalah {{items.length}}</h3>
+
+    <ul v-for="item in items">
+      <li>{{item}}</li>
+    </ul>
+
     <div class="items">
       <div v-for="item in items" class="item">
         <div class="foto">
@@ -27,38 +35,37 @@
           <h2>{{item.produk}}</h2>
           <h3>{{item.harga}}</h3>
           <p>
-           {{item.deskripsi }}
+           {{item.deskripsi}}
           </p>
         </div>
       </div>
     </div>
    
-      <input type="text" v-model="msg" />
-      <p>{{msg}}</p>
+   
     </div>
     <script src="assets/js/script.js"></script>
     <script src="assets/vendor/vue2.js"></script>
     <script>
       var app = new Vue({
         el: "#app",
-        data: {
-          msg: "hi",
-          items:[
-            {
-              id:1,
-              produk:'pram',
-              harga:20000,
-              deskripsi:'ini adalah deskripsi bukan yang lain'
-            },
-            {
-              id:2,
-              produk:'dita',
-              harga:200000,
-              deskripsi:"pram ganteng"
-            }
-          ]
+        
+        data() {
+          return {
+        
+          items:["pram","dita"],
+          input: "",
+          }
         },
-      });
+        methods:{
+          simpan(){
+            if(this.input.length > 0){
+            this.items.push(this.input);
+          }
+        }
+        }
+      },
+      
+      );
     </script>
   </body>
 </html>
